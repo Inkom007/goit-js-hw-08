@@ -76,24 +76,17 @@ const imgEl = images.map(image => {
 
 gallery.insertAdjacentHTML("beforeend", imgEl);
 
-const linksEl = document.querySelectorAll(".gallery-link");
 
-document.addEventListener("DOMContentLoaded", function () {
-    linksEl.forEach(function (link) {
-        link.addEventListener("click", function (event) {
-            event.preventDefault();
-        })
-    })
-});
 
 gallery.addEventListener("click", handleClick);
 
 function handleClick(event) {
-    if (!event.target.classList.contains("gallery-image")) {
+    if (event.target.nodeName !== 'IMG') {
         return;
     }
     const link = event.target.dataset.source;
-
+    event.preventDefault();
+    
     const instance = basicLightbox.create(
         `<div class="modal">
         <img class="modal-img" src="${link}"/>
@@ -102,4 +95,3 @@ function handleClick(event) {
     instance.show()
 };
 
-console.log(window);
