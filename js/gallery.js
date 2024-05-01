@@ -101,3 +101,5 @@ function handleClick(event) {
     )
     instance.show()
 };
+
+console.log(window);
