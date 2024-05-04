@@ -88,9 +88,7 @@ function handleClick(event) {
     event.preventDefault();
     
     const instance = basicLightbox.create(
-        `<div class="modal">
-        <img class="modal-img" src="${link}"/>
-        </div>`
+        ` <img class="modal-img" src="${link}"/>`
     )
     instance.show()
 };
